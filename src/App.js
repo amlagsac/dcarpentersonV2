@@ -5,21 +5,24 @@ import Services from './components/Services/Services';
 import About from './components/About/About';
 import ContactUs from './components/ContactUs/ContactUs';
 import NoPage from './components/NoPage/NoPage';
-import './App.css';
+import Navbar from './components/Navbar';
+import { Container } from '@mui/material';
 
-function App() {
+export default function App() {
+
   return (
     <>
-      <Routes>
-        <Route path='/' element={<Home />}></Route>
-        <Route path="/products" element={<Products />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<ContactUs />} />
-        <Route path="*" element={<NoPage />} />
-      </Routes>
+      <Container disableGutters maxWidth={false} sx={{ height: '100vh' }}>
+        <Navbar />
+        <Routes>
+          <Route path='/' exact element={<Home />}></Route>
+          <Route path="/products" element={<Products />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="*" element={<NoPage />} />
+        </Routes>
+      </Container>
     </>
   );
 }
-
-export default App;
